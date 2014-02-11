@@ -1,4 +1,4 @@
-ballin-batman
+Author: Darin Doria
 =============
 
 QR Scanner 
