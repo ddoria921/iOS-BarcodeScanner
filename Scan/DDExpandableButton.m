@@ -1,6 +1,7 @@
 //
 //  DDExpandableButton.m
 //  https://github.com/ddebin/DDExpandableButton
+//  Credit goes to the developer from the link above for this class
 //
 
 #import <QuartzCore/CALayer.h>

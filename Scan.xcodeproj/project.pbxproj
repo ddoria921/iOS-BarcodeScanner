@@ -146,12 +146,12 @@
 		93979DB018A9863500749752 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
-				93979DE518A989B000749752 /* DDExpandableButton.h */,
-				93979DE618A989B000749752 /* DDExpandableButton.m */,
 				93979DDF18A987D900749752 /* ScanViewController.h */,
 				93979DE018A987D900749752 /* ScanViewController.m */,
 				93979DE218A9881000749752 /* CaptureSessionManager.h */,
 				93979DE318A9881000749752 /* CaptureSessionManager.m */,
+				93979DE518A989B000749752 /* DDExpandableButton.h */,
+				93979DE618A989B000749752 /* DDExpandableButton.m */,
 				93979DBC18A9863500749752 /* Main.storyboard */,
 				93979DC218A9863500749752 /* Images.xcassets */,
 				93979DB118A9863500749752 /* Supporting Files */,
@@ -543,6 +543,7 @@
 				93979DDB18A9863500749752 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		93979DDC18A9863500749752 /* Build configuration list for PBXNativeTarget "ScanTests" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +552,7 @@
 				93979DDE18A9863500749752 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

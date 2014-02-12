@@ -53,7 +53,7 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     
     [self setCaptureManager:[[CaptureSessionManager alloc] init]];
     [[self captureManager] addVideoPreviewLayer];
@@ -291,6 +291,14 @@
             
             _decodedMessage = [transformed stringValue];
             
+            UIApplication *myApplication = [UIApplication sharedApplication];
+            NSURL *url = [NSURL URLWithString:_decodedMessage];
+            
+            if ([myApplication canOpenURL:url]) {
+                [myApplication openURL:url];
+                return;
+            }
+            
             // If a valid barcode was found
             if ([_decodedMessage isEqualToString:@"valid key"]) {
                 /*
@@ -302,6 +310,8 @@
                 _shouldSaveAssigmnent = YES;
                 _didFindBarcode = YES;
                 
+                
+                //run any updates to the UI on the main thread
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_scanCrosshairs setImage:[UIImage imageNamed:@"ScanCrosshairsValid"]];
                     _animationView.type = @"flash";

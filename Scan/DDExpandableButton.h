@@ -1,6 +1,7 @@
 //
 //  DDExpandableButton.h
 //  https://github.com/ddebin/DDExpandableButton
+//  Credit goes to the developer from the link above for this class
 //
 
 #ifndef __IPHONE_3_0
