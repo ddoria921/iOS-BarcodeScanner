@@ -301,11 +301,11 @@
             
             // If a valid barcode was found
             if ([_decodedMessage isEqualToString:@"valid key"]) {
-                /*
-                 Change image to green and flash. Make flash not so fast and obvious.
-                 Stop scanning for barcodes.
-                 Exit scanner after 1.5 seconds.
-                 */
+                
+                
+                //  Change image to green and flash.
+                //  Stop scanning for barcodes.
+                //  Exit scanner after 1.5 seconds.
                 
                 _shouldSaveAssigmnent = YES;
                 _didFindBarcode = YES;
@@ -326,14 +326,14 @@
                 });
                 
             } else {
-                /*
-                 Change image to red and perform a quick shake.
-                 Delay from scanning until animation is over.
-                 Start scanning again.
-                 */
+                
+                //  Change image to red and perform a quick shake.
+                //  Delay from scanning until animation is over.
+                //  Start scanning again.
                 
                 _animationView.type = @"shake";
                 
+                // run on main queue
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     [_scanCrosshairs setImage:[UIImage imageNamed:@"ScanCrosshairsInvalid"]];
@@ -356,8 +356,6 @@
                 double delayInSeconds = 1.3;
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
                 dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    
-                    
                     
                     //animate back to gray
                     [UIView transitionWithView:_scanCrosshairs
