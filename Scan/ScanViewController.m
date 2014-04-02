@@ -11,12 +11,12 @@
 #import "CaptureSessionManager.h"
 #import "CSAnimationView.h"
 
-#define kSPSightWalkCaptureOverlayAlpha 0.7
-#define kSPSightWalkFooterViewHeight    100.0
-#define kSPSightWalkHeaderViewHeight    40.0
-#define kSPScannerTargetWidth           201.0
-#define kSPScannerTargetHeight          200.0
-#define kSPSightWalkThumbnailSize       CGSizeMake(230, 90)
+#define CaptureOverlayAlpha     0.7
+#define FooterViewHeight        100.0
+#define HeaderViewHeight        40.0
+#define ScannerTargetWidth      201.0
+#define ScannerTargetHeight     200.0
+#define ThumbnailSize           CGSizeMake(230, 90)
 
 
 @interface ScanViewController () <AVCaptureMetadataOutputObjectsDelegate, UIGestureRecognizerDelegate>
@@ -159,14 +159,14 @@
     [self.view addSubview:_animationView];
     
     
-    CGFloat scanningViewHeight = self.view.bounds.size.height - kSPSightWalkHeaderViewHeight - kSPSightWalkFooterViewHeight;
+    CGFloat scanningViewHeight = self.view.bounds.size.height - HeaderViewHeight - FooterViewHeight;
     CGFloat scanningViewWidth = self.view.bounds.size.width;
     
-    CGFloat scannerTargetYAxis = (scanningViewHeight / 2.0) - (kSPScannerTargetHeight / 2.0) + kSPSightWalkHeaderViewHeight;
-    CGFloat scannerTargetXAxis = (scanningViewWidth / 2.0) - (kSPScannerTargetWidth / 2);
+    CGFloat scannerTargetYAxis = (scanningViewHeight / 2.0) - (ScannerTargetHeight / 2.0) + HeaderViewHeight;
+    CGFloat scannerTargetXAxis = (scanningViewWidth / 2.0) - (ScannerTargetWidth / 2);
     
     _scanCrosshairs = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ScanCrosshairs"]];
-    [_scanCrosshairs setFrame:CGRectMake(scannerTargetXAxis, scannerTargetYAxis, kSPScannerTargetWidth, kSPScannerTargetHeight)];
+    [_scanCrosshairs setFrame:CGRectMake(scannerTargetXAxis, scannerTargetYAxis, ScannerTargetWidth, ScannerTargetHeight)];
     
     _scanCrosshairs.contentMode = UIViewContentModeScaleToFill;
     
@@ -190,11 +190,11 @@
 
 - (void)createFooterOverlay
 {
-    CGFloat vOffset = self.view.bounds.size.height - kSPSightWalkFooterViewHeight;
+    CGFloat vOffset = self.view.bounds.size.height - FooterViewHeight;
     NSLog(@"vOffset: %f", vOffset);
-    UIView * footerOverlay = [[UIView alloc] initWithFrame:CGRectMake(0, vOffset, self.view.bounds.size.width, kSPSightWalkFooterViewHeight)];
+    UIView * footerOverlay = [[UIView alloc] initWithFrame:CGRectMake(0, vOffset, self.view.bounds.size.width, FooterViewHeight)];
     footerOverlay.backgroundColor = [UIColor blackColor];
-    footerOverlay.alpha = kSPSightWalkCaptureOverlayAlpha;
+    footerOverlay.alpha = CaptureOverlayAlpha;
     
     [self.view addSubview:footerOverlay];
     self.footerOverlay = footerOverlay;
@@ -222,10 +222,10 @@
 
 - (void)createTorchAndDoneHeader
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kSPSightWalkHeaderViewHeight)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, HeaderViewHeight)];
     NSLog(@"%f", self.view.bounds.size.width);
     view.backgroundColor = [UIColor blackColor];
-    view.alpha = kSPSightWalkCaptureOverlayAlpha;
+    view.alpha = CaptureOverlayAlpha;
     [self.view addSubview:view];
     self.torchAndDoneHeaderView = view;
 }
@@ -560,7 +560,7 @@
 
 - (CGSize)defaultFrameSize
 {
-    return kSPSightWalkThumbnailSize;
+    return ThumbnailSize;
 }
 
 #pragma mark - Preferences
